@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+    <head>
+        <title>Авторизация</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <style type="text/css">
+        	
+        </style>
+    </head>
+
+    <body>
+
+Для входа на сайт вам необходимо авторизироваться
+
+
+
+  {% if form.errors %}
+    <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+  {% endif %}
+<p></p>
+  <form action='.' method='post'> {% csrf_token %}
+    <label for="username">Логин:</label>
+    <input type="text" name="username" value="" id="username"><p></p>
+    <label for="password">Пароль:</label>
+    <input type="password" name="password" value="" id="password"><p></p>
+    <input type="submit" value="Войти" />
+    <input type="hidden" name="next" value="{{ next|escape }}" />
+  </form>
+<p></p>
+Если же у вас ещё нету аккаунта, создайте его
+<a href="{% url testblog.views.register %}">здесь</a>
+    </body>
+</html>

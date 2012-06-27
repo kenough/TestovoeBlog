@@ -1,0 +1,6 @@
+from django.contrib import admin 
+from blog.testblog.models import Users, Comments, Post
+
+admin.site.register(Users)
+admin.site.register(Comments)
+admin.site.register(Post)

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+    <head>
+        <title>Просмотр профиля</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <style type="text/css">
+        	
+        </style>
+    </head>
+
+    <body>
+Имя: {{ request.user.first_name}}<p></p>
+Фамилия: {{ request.user.last_name}}<p></p> 
+Id пользователя: {{ request.user.id }}<p></p>
+Логин: {{ request.user.username }}<p></p>
+
+{{ request.user.email}}
+<p></p>
+<a href="{% url testblog.views.myposts request.user.id%}">Мои посты</a><p></p>
+<a href="{% url testblog.views.addpost %}">Создать пост</a><p></p>
+<a href="{% url testblog.views.changeprofile %}">Изменить профиль</a><p></p>
+<a href="{% url testblog.views.logout %}">Выйти</a>
+
+    </body>
+</html>
